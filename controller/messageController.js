@@ -12,7 +12,7 @@ export const sendMessage = catchAsyncErrors(async (req, res, next) => {
     success: true,
     message: "Message Sent!",
   });
-});
+});  
 
 export const getAllMessages = catchAsyncErrors(async (req, res, next) => {
   const messages = await Message.find();

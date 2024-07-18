@@ -72,7 +72,7 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   // });
   generateToken(user, "Login Successfully!", 201, res);
 });
-
+  
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } =
     req.body;
@@ -156,6 +156,8 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   const cloudinaryResponse = await cloudinary.uploader.upload(
     docAvatar.tempFilePath
   );
+  // console.log(cloudinaryResponse);
+  // console.log(docAvatar);
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
@@ -211,8 +213,8 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
     .cookie("adminToken", "", {
       httpOnly: true,
       expires: new Date(Date.now()),
-      secure:true,
-      sameSite:"None"
+      secure: true,
+      sameSite: "None"
     })
     .json({
       success: true,
@@ -227,8 +229,8 @@ export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
     .cookie("patientToken", "", {
       httpOnly: true,
       expires: new Date(Date.now()),
-      secure:true,
-      sameSite:"None"
+      secure: true,
+      sameSite: "None"
     })
     .json({
       success: true,

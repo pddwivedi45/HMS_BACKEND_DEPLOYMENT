@@ -11,6 +11,7 @@ import {errorMiddleware} from './middlewares/errorMiddleware.js';
 const app = express();
 config({ path: "./config/config.env"});
 
+// connection of backend with frontends 
 app.use(
     cors({
       origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],

@@ -96,6 +96,7 @@ export const updateAppointmentStatus = catchAsyncErrors(
             return next(new ErrorHandler("Appointment not found!", 404));
         }
         appointment = await Appointment.findByIdAndUpdate(id, req.body, {
+            // yhaa req.body ki jagh {status} bhi likh skte ho
             new: true,
             runValidators: true,
             useFindAndModify: false,
